@@ -1,19 +1,88 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Site super sur et sans pixel tracker caché</title>
+<meta charset="UTF-8">
+<title>Simulation Tracking Pixel</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+section {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#logContainer div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+}
+</style>
+
 </head>
 <body>
-	<h1>Bienvenue sur mon Site !</h1>
-	
-	<script src="tracker.js"></script>
-	
-	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADklEQVR4AWL6////fwAAAAD//w7I1cwAAAAGSURBVAMACgUD/9k79a8AAAAASUVORK5CYII="
-	id="tracking-pixel"
-	style="display:none;"
-	onload="trackExecution()">
-	
+
+<h1>Simulation de Tracking Pixel Invisible</h1>
+
+<!-- SECTION 1 : INTERACTIONS -->
+<section>
+<h2>Interactions utilisateur</h2>
+<button onclick="trackExecution('Clic sur bouton promo')">Cliquer sur promo</button>
+<button onclick="trackExecution('Ajout au panier')">Ajouter au panier</button>
+</section>
+
+<!-- SECTION 2 : GESTION DES LOGS -->
+<section>
+<h2>Gestion des logs</h2>
+<button onclick="displayLogs()">Afficher les logs</button>
+<button onclick="clearLogs()">Effacer les logs</button>
+</section>
+
+<!-- SECTION 3 : DONNÉES -->
+<section>
+<h2>Données collectées</h2>
+<p><strong>Nombre d'événements :</strong> <span id="eventCount">0</span></p>
+</section>
+
+<!-- SECTION 4 : JOURNAL -->
+<section>
+<h2>Journal des événements</h2>
+<div id="logContainer"></div>
+</section>
+
+<script src="tracker.js"></script>
+
+<!-- PIXEL INVISIBLE AUTOMATIQUE -->
+<img 
+src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADklEQVR4AWL6////fwAAAAD//w7I1cwAAAAGSURBVAMACgUD/9k79a8AAAAASUVORK5CYII="
+style="display:none;"
+onload="trackExecution('Chargement automatique du pixel')">
+
 </body>
 </html>
