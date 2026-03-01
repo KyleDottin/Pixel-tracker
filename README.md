@@ -70,16 +70,27 @@ Aucune installation particulière n’est nécessaire.
 
 Étapes :
 
-Télécharger le projet.
+- Télécharger le projet.
 
-Ouvrir le fichier HTML dans un navigateur web.
+- Ouvrir l'un des fichiers HTML dans un navigateur web (La version avec ou sans tracker et vous pourrez naviguer entre les deux après lancement).
 
-Observer le fonctionnement du tracker (dans la console ou le système de logs prévu).
+- Observer le fonctionnement du tracker (dans la console ou le système de logs prévu).
 
 ## Scénario
+
+Un Scénario simple peut être reproduit avec les étapes suivantes :
+
+- Lancer le site "sans_tracker" pour observer les interactions de notre simulation,
+- Passer ensuite sur le site avec tracker via le lien (Une bande avec écrit "Mode Tracking : ACTIVE" sera en haut de la page),
+- Effectuer les mêmes actions que sur le site référence et observer les logs récupéré via le bouton "Afficher les donnees collectees".
+  
+NOTE :  N'hésitez pas à appuyer sur F5 pour rafraichir la page et observer que les logs restent stocké ou d'appuyer sur F12 afin d'observer les intéractions en direct dans la consol.
 
 ## Objectif pédagogique
 
 Ce projet a pour but de sensibiliser aux techniques de suivi invisibles sur Internet et de comprendre comment des données peuvent être collectées sans action explicite de l’utilisateur.
 
 Il s’agit uniquement d’un projet éducatif visant à illustrer les enjeux de la vie privée en ligne.
+
+AUCUNES données n'est stocker par le projet que cela soit en ligne ou local, les logs obtenu sont temporaire et seront réinitialisé à chaque lancement du projet 
+(cependant un rafraichissement de la page gardera en mémoire les logs de l'instance actuel)
