@@ -1,88 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Simulation Tracking Pixel</title>
+    <meta charset="UTF-8">
+    <title>Site AVEC Tracking</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --danger-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-section {
-    background: white;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
 
-button {
-    padding: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-}
+        .nav-bar {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid var(--danger-color);
+        }
 
-#logContainer div {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-}
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
 
-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+        section {
+            background: var(--card-bg);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
 
-section h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 8px;
-}
-</style>
+        section:hover {
+            transform: translateY(-2px);
+        }
 
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; color: #2c3e50; font-size: 1.2rem; }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px 10px 5px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover { background-color: #2980b9; }
+        
+        button.danger { background-color: var(--danger-color); }
+        button.danger:hover { background-color: #c0392b; }
+
+        .log-entry {
+            background-color: #f9fbfd;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .log-entry ul { margin: 10px 0 0 0; padding-left: 20px; }
+        .log-entry li { margin-bottom: 5px; }
+        
+        .badge {
+            background-color: var(--danger-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Simulation de Tracking Pixel Invisible</h1>
+<div class="container">
+    <div class="nav-bar">
+        <span><strong>Mode Tracking : ACTIVE</strong></span>
+        <a href="sans_tracker.html">Aller vers le site Temoin (Sans Tracking)</a>
+    </div>
 
-<!-- SECTION 1 : INTERACTIONS -->
-<section>
-<h2>Interactions utilisateur</h2>
-<button onclick="trackExecution('Clic sur bouton promo')">Cliquer sur promo</button>
-<button onclick="trackExecution('Ajout au panier')">Ajouter au panier</button>
-</section>
+    <h1>Boutique en ligne (Simulation)</h1>
 
-<!-- SECTION 2 : GESTION DES LOGS -->
-<section>
-<h2>Gestion des logs</h2>
-<button onclick="displayLogs()">Afficher les logs</button>
-<button onclick="clearLogs()">Effacer les logs</button>
-</section>
+    <section>
+        <h2>Actions utilisateur</h2>
+        <p>Cliquez sur ces boutons pour simuler le comportement d'un utilisateur regulier.</p>
+        <button onclick="trackExecution('Clic sur bouton promo')">Voir la promotion</button>
+        <button onclick="trackExecution('Ajout au panier')">Ajouter au panier</button>
+    </section>
 
-<!-- SECTION 3 : DONNÉES -->
-<section>
-<h2>Données collectées</h2>
-<p><strong>Nombre d'événements :</strong> <span id="eventCount">0</span></p>
-</section>
+    <section>
+        <h2>Panneau d'administration du Tracker</h2>
+        <button onclick="displayLogs()">Afficher les donnees collectees</button>
+        <button class="danger" onclick="clearLogs()">Effacer la base de donnees</button>
+    </section>
 
-<!-- SECTION 4 : JOURNAL -->
-<section>
-<h2>Journal des événements</h2>
-<div id="logContainer"></div>
-</section>
+    <section>
+        <h2>Statistiques en direct</h2>
+        <p>Nombre d'evenements secretement enregistres : <span id="eventCount" class="badge">0</span></p>
+    </section>
+
+    <section>
+        <h2>Journal detaille</h2>
+        <div id="logContainer"><p style="color: #7f8c8d; font-style: italic;">Cliquez sur "Afficher les donnees collectees" pour voir les logs.</p></div>
+    </section>
+</div>
 
 <script src="tracker.js"></script>
 
-<!-- PIXEL INVISIBLE AUTOMATIQUE -->
-<img 
-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADklEQVR4AWL6////fwAAAAD//w7I1cwAAAAGSURBVAMACgUD/9k79a8AAAAASUVORK5CYII="
-style="display:none;"
-onload="trackExecution('Chargement automatique du pixel')">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADklEQVR4AWL6////fwAAAAD//w7I1cwAAAAGSURBVAMACgUD/9k79a8AAAAASUVORK5CYII=" style="display:none;" onload="trackExecution('Chargement du pixel (Image 1x1)')" alt="">
 
 </body>
 </html>

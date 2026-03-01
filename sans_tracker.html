@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Site SANS Tracking</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --success-color: #2ecc71;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .nav-bar {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid var(--success-color);
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+        }
+
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; color: #2c3e50; font-size: 1.2rem; }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px 10px 5px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover { background-color: #2980b9; }
+
+        .dummy-alert {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <span><strong>Mode Tracking : DESACTIVE (Site Temoin)</strong></span>
+        <a href="pixel_tracker_local.html">Retour vers le site surveille</a>
+    </div>
+
+    <h1>Boutique en ligne (Simulation)</h1>
+
+    <section>
+        <h2>Actions utilisateur</h2>
+        <p>Cliquez sur ces boutons. Aucune donnee n'est envoyee en arriere-plan.</p>
+        <button onclick="document.getElementById('promo-alert').style.display='block'">Voir la promotion</button>
+        <button onclick="document.getElementById('panier-alert').style.display='block'">Ajouter au panier</button>
+        
+        <div id="promo-alert" class="dummy-alert">Promotion affichee ! (Aucun tracker declenche)</div>
+        <div id="panier-alert" class="dummy-alert">Article ajoute ! (Aucun tracker declenche)</div>
+    </section>
+
+    <section>
+        <h2>Confidentialite</h2>
+        <p>Ce site temoin ne contient aucun fichier <code>tracker.js</code>, aucun evenement <code>onclick</code> d'espionnage et aucun pixel invisible cache dans le code source.</p>
+        <p>Si vous inspectez la console ou le reseau (F12), vous verrez qu'absolument rien ne se passe lorsque vous interagissez avec la page.</p>
+    </section>
+</div>
+
+</body>
+</html>
