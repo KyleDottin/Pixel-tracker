@@ -12,6 +12,7 @@ function trackExecution(eventType = "Action utilisateur") {
     // Récupération des logs existants
     let logs = JSON.parse(localStorage.getItem('pixel_logs')) || [];
 
+    // Ajout d'un nouvel événement
     logs.push(trackingData);
 
     // Sauvegarde
